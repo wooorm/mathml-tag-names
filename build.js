@@ -2,19 +2,22 @@
 
 /* Dependencies. */
 var fs = require('fs');
-var https = require('https');
-var cheerio = require('cheerio');
+var jsdom = require('jsdom');
 var bail = require('bail');
 var list = require('./');
 
 var count = 0;
 
 /* Crawl MathMl 1.0. */
-load('https://www.w3.org/TR/1998/REC-MathML-19980407/appendixF.html', function (err, doc) {
+jsdom.env('https://www.w3.org/TR/1998/REC-MathML-19980407/appendixF.html', function (err, window) {
+  var nodes;
+
   bail(err);
 
-  cheerio.load(doc)('ul ul ul ul a').each(function () {
-    var data = this.children[0].data;
+  nodes = [].slice.call(window.document.querySelectorAll('ul ul ul ul a'));
+
+  nodes.forEach(function (node) {
+    var data = node.childNodes[0].textContent;
 
     data = data.slice(data.indexOf('<') + 1, data.indexOf('>'));
 
@@ -31,11 +34,15 @@ load('https://www.w3.org/TR/1998/REC-MathML-19980407/appendixF.html', function (
 });
 
 /* Crawl MathMl 2.0. */
-load('https://www.w3.org/TR/MathML2/appendixl.html', function (err, doc) {
+jsdom.env('https://www.w3.org/TR/MathML2/appendixl.html', function (err, window) {
+  var nodes;
+
   bail(err);
 
-  cheerio.load(doc)('.div1 .div2:first-child dl dt').each(function () {
-    var data = this.children[0].data;
+  nodes = [].slice.call(window.document.querySelectorAll('.div1 .div2:first-child dl dt'));
+
+  nodes.forEach(function (node) {
+    var data = node.childNodes[0].textContent;
 
     if (list.indexOf(data) === -1) {
       list.push(data);
@@ -46,11 +53,15 @@ load('https://www.w3.org/TR/MathML2/appendixl.html', function (err, doc) {
 });
 
 /* Crawl MathMl 3.0. */
-load('https://www.w3.org/TR/MathML3/appendixi.html', function (err, doc) {
+jsdom.env('https://www.w3.org/TR/MathML3/appendixi.html', function (err, window) {
+  var nodes;
+
   bail(err);
 
-  cheerio.load(doc)('.div1 .div2:first-child dl dt').each(function () {
-    var data = this.children[0].data;
+  nodes = [].slice.call(window.document.querySelectorAll('.div1 .div2:first-child dl dt'));
+
+  nodes.forEach(function (node) {
+    var data = node.childNodes[0].textContent;
 
     if (list.indexOf(data) === -1) {
       list.push(data);
@@ -67,24 +78,4 @@ function done() {
   if (count === 3) {
     fs.writeFile('index.json', JSON.stringify(list.sort(), 0, 2) + '\n', bail);
   }
-}
-
-/* Load. */
-function load(url, next) {
-  https.get(url, function (res, err) {
-    var value = '';
-
-    if (err) {
-      return next(err);
-    }
-
-    res
-      .setEncoding('utf8')
-      .on('data', function (buf) {
-        value += buf;
-      })
-      .on('end', function () {
-        next(null, value);
-      });
-  });
 }
