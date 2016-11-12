@@ -20,16 +20,12 @@ module, [uncompressed and compressed][releases].
 
 ## Usage
 
-Dependencies:
-
 ```javascript
 var mathMLTagNames = require('mathml-tag-names');
-```
 
-Slicing the first 20:
+mathMLTagNames.length; //=> 205
 
-```javascript
-var first = mathMLTagNames.slice(0, 20);
+console.log(mathMLTagNames.slice(0, 20));
 ```
 
 Yields:
@@ -55,18 +51,6 @@ Yields:
   'arctanh',
   'arg',
   'bind' ]
-```
-
-And `length`:
-
-```javascript
-var length = mathMLTagNames.length;
-```
-
-Yields:
-
-```js
-205
 ```
 
 ## API
