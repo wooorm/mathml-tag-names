@@ -12,20 +12,17 @@
     "tagname",
     "w3c"
   ],
-  "dependencies": {},
-  "files": [
-    "index.js",
-    "index.json"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wooorm/mathml-tag-names.git"
-  },
+  "repository": "https://github.com/wooorm/mathml-tag-names",
   "bugs": "https://github.com/wooorm/mathml-tag-names/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
   ],
+  "main": "index.json",
+  "files": [
+    "index.json"
+  ],
+  "dependencies": {},
   "devDependencies": {
     "bail": "^1.0.0",
     "browserify": "^13.0.0",
@@ -44,7 +41,7 @@
   "scripts": {
     "build-md": "remark . --quiet --frail",
     "build-crawl": "node script/build.js",
-    "build-bundle": "browserify index.js --bare -s mathML > mathml-tag-names.js",
+    "build-bundle": "browserify index.json --bare -s mathML > mathml-tag-names.js",
     "build-mangle": "esmangle mathml-tag-names.js > mathml-tag-names.min.js",
     "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
     "lint": "xo",

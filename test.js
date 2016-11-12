@@ -3,7 +3,7 @@
 /* Dependencies. */
 var assert = require('assert');
 var test = require('tape');
-var mathMLTagNames = require('./index.js');
+var mathMLTagNames = require('./');
 
 /* Tests. */
 test('mathMLTagNames', function (t) {
