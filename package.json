@@ -40,7 +40,7 @@
   },
   "scripts": {
     "build-md": "remark . --quiet --frail",
-    "build-crawl": "node script/build.js",
+    "build-crawl": "node build",
     "build-bundle": "browserify index.json --bare -s mathML > mathml-tag-names.js",
     "build-mangle": "esmangle mathml-tag-names.js > mathml-tag-names.min.js",
     "build": "npm run build-md && npm run build-bundle && npm run build-mangle",

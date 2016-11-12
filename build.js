@@ -2,22 +2,15 @@
 
 /* Dependencies. */
 var fs = require('fs');
-var path = require('path');
 var https = require('https');
 var cheerio = require('cheerio');
 var bail = require('bail');
-var list = require('..');
-
-/* Input / output locations. */
-var mathml1 = 'https://www.w3.org/TR/1998/REC-MathML-19980407/appendixF.html';
-var mathml2 = 'https://www.w3.org/TR/MathML2/appendixl.html';
-var mathml3 = 'https://www.w3.org/TR/MathML3/appendixi.html';
-var output = path.join(__dirname, '..', 'index.json');
+var list = require('./');
 
 var count = 0;
 
 /* Crawl MathMl 1.0. */
-load(mathml1, function (err, doc) {
+load('https://www.w3.org/TR/1998/REC-MathML-19980407/appendixF.html', function (err, doc) {
   bail(err);
 
   cheerio.load(doc)('ul ul ul ul a').each(function () {
@@ -38,7 +31,7 @@ load(mathml1, function (err, doc) {
 });
 
 /* Crawl MathMl 2.0. */
-load(mathml2, function (err, doc) {
+load('https://www.w3.org/TR/MathML2/appendixl.html', function (err, doc) {
   bail(err);
 
   cheerio.load(doc)('.div1 .div2:first-child dl dt').each(function () {
@@ -53,7 +46,7 @@ load(mathml2, function (err, doc) {
 });
 
 /* Crawl MathMl 3.0. */
-load(mathml3, function (err, doc) {
+load('https://www.w3.org/TR/MathML3/appendixi.html', function (err, doc) {
   bail(err);
 
   cheerio.load(doc)('.div1 .div2:first-child dl dt').each(function () {
@@ -72,7 +65,7 @@ function done() {
   count++;
 
   if (count === 3) {
-    fs.writeFile(output, JSON.stringify(list.sort(), 0, 2) + '\n', bail);
+    fs.writeFile('index.json', JSON.stringify(list.sort(), 0, 2) + '\n', bail);
   }
 }
 
