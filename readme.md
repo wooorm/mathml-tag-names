@@ -56,6 +56,19 @@ Yields:
 
 `Array.<string>` — List of lower-case tag-names.
 
+## Related
+
+*   [`html-tag-names`](https://github.com/wooorm/html-tag-names)
+    — List of HTML tags
+*   [`svg-tag-names`](https://github.com/wooorm/svg-tag-names)
+    — List of SVG tags
+*   [`svg-element-attributes`](https://github.com/wooorm/svg-element-attributes)
+    — Map of SVG elements to allowed attributes
+*   [`html-element-attributes`](https://github.com/wooorm/html-element-attributes)
+    — Map of HTML elements to allowed attributes
+*   [`aria-attributes`](https://github.com/wooorm/aria-attributes)
+    — List of ARIA attributes
+
 ## License
 
 [MIT][license] © [Titus Wormer][author]
