@@ -15,9 +15,6 @@ tag-names.
 npm install mathml-tag-names
 ```
 
-**mathml-tag-names** is also available as an AMD, CommonJS, and globals
-module, [uncompressed and compressed][releases].
-
 ## Usage
 
 ```javascript
@@ -70,8 +67,6 @@ Yields:
 [build-page]: https://travis-ci.org/wooorm/mathml-tag-names
 
 [npm]: https://docs.npmjs.com/cli/install
-
-[releases]: https://github.com/wooorm/mathml-tag-names/releases
 
 [license]: LICENSE
 
