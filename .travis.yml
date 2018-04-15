@@ -3,19 +3,12 @@ node_js:
 - '4.0'
 - '8.0'
 deploy:
-  - provider: npm
-    email: tituswormer@gmail.com
-    api_key:
-      secure: OSNi5iw/9x/PpYkuUlCcTFbtwo7e+8y0/TJcS4w/g6tflu/QTA+g7raGn6fOwtQDhk1pyK+1QvglcnAhoMSJ1ykCl/AtpEMEUBbZuIdFF+5msGhpKRWKXeW0PyuGSIFAH+UNLVEeqS6ErbxEwKjAXrLbfVB0QzHdgJhLb4fNLh3gfRmu02jOPWVxIhaIwJCDk6/qQGAOMvzRQKeWGfO6wf39B9s/OzBtzdiCivTbixpF5pzm61en1OV5TM0tafIsgPIh0WSyfx7P1EcnrAGt5uFe4488LhulOZNZZuWnb08EXeNkMMu8Nf9CNQ9mVV0otgM8kF6ezaeCe2G6LIIl+7C81P3Q5rruVRSYxMjRWMzIMoDJ8DzqJuQx+SxP1GVb8di/ziLanqMGozwP30hw0GKO/KvWQ5E1rE4urLINitrkjO1/6UTfPN8wOfEMl+WCJCM7ZCGcQQIHKtY/iMlhN6KK1vLHg5osr2MtUBxF+8fMJx6+yDimj4mldTcgoJOaNm63JlSE/nf8nq2D8CWR51VLiFfM9RbQsQSq/DMT2oIwsaULbom0aLqFpDn1/Jy5qAeA/j42w/F4Xws6V89OwTDwyt5effqx8+OQ16dbcu1TO06ur3ZdagdMFDTnoelOziiVU4lr+eoUdYiE94EJ5STU8VPYm0lpzItcArn8TUw=
-    on:
-      tags: true
-      node: '4.0'
-  - provider: releases
-    api_key:
-      secure: g1q/C7L/3jfe73wf2OKDlk3vSDh+vXurwzjmBqvWKvP06TRpYzRr/Maw/7f//94qBePEfHtR1B0V4xbhm7ZfoaCKC7sXXoKYNZJucAApDObasjVfA05yrZ9UeLMtmBWMc55z/fmfoUBxfq4JlFEAFK1J0bZMvt1bwo6CezTQxsNzd4yq1FlnZ9yI3iWd0/KzxUUge94demvXOhHUFeUn3E8gjeBWVkiEuICe+4A/6rdS/T57b+zdUfrtbC1y9RwHZiF9eRasHl37EILNJOf48/FQOp8y3kzJNdq0CwsHBUHrtiP/v6yghhs5SB9awb8kRYCtfuCNqkFT8r0qzDNLo5EJmobC+FnFZSwwTxugtNGYrajQHeDZ2Y7L5tjDovacqTcA3x6vc37CJ5KQxc3zsme5/e907OM0ShNR3kGp6GOEQqzqSEB+qRYfaD6cjhAhIEDiFYHzB7gV7V5hpiCqXg/G1IXxDIqjHYtBfKRVmpl6OL2Y+6D8CylLxI17MJofXxPnUrjQ2roxDSTF/dETRMvHVY8r7JopsXD/LoAKjZ1E46ZQ9QFpHODW0R472AyothkyZ9ZAVTGqUtobQr/J3gB0NlJKyOQJvpkJNb9NNf/lJ+vrU1yUpzC8uMWOBkRWY403qTbatvckb869PJWdpAqWoWFp7oEeVod3zR5zmAs=
-    file:
-      - "mathml-tag-names.js"
-      - "mathml-tag-names.min.js"
-    on:
-      tags: true
-      node: '8.0'
+  provider: releases
+  api_key:
+    secure: g1q/C7L/3jfe73wf2OKDlk3vSDh+vXurwzjmBqvWKvP06TRpYzRr/Maw/7f//94qBePEfHtR1B0V4xbhm7ZfoaCKC7sXXoKYNZJucAApDObasjVfA05yrZ9UeLMtmBWMc55z/fmfoUBxfq4JlFEAFK1J0bZMvt1bwo6CezTQxsNzd4yq1FlnZ9yI3iWd0/KzxUUge94demvXOhHUFeUn3E8gjeBWVkiEuICe+4A/6rdS/T57b+zdUfrtbC1y9RwHZiF9eRasHl37EILNJOf48/FQOp8y3kzJNdq0CwsHBUHrtiP/v6yghhs5SB9awb8kRYCtfuCNqkFT8r0qzDNLo5EJmobC+FnFZSwwTxugtNGYrajQHeDZ2Y7L5tjDovacqTcA3x6vc37CJ5KQxc3zsme5/e907OM0ShNR3kGp6GOEQqzqSEB+qRYfaD6cjhAhIEDiFYHzB7gV7V5hpiCqXg/G1IXxDIqjHYtBfKRVmpl6OL2Y+6D8CylLxI17MJofXxPnUrjQ2roxDSTF/dETRMvHVY8r7JopsXD/LoAKjZ1E46ZQ9QFpHODW0R472AyothkyZ9ZAVTGqUtobQr/J3gB0NlJKyOQJvpkJNb9NNf/lJ+vrU1yUpzC8uMWOBkRWY403qTbatvckb869PJWdpAqWoWFp7oEeVod3zR5zmAs=
+  file:
+    - "mathml-tag-names.js"
+    - "mathml-tag-names.min.js"
+  on:
+    tags: true
+    node: '8.0'
