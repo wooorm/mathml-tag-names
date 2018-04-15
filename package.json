@@ -12,7 +12,7 @@
     "tagname",
     "w3c"
   ],
-  "repository": "https://github.com/wooorm/mathml-tag-names",
+  "repository": "wooorm/mathml-tag-names",
   "bugs": "https://github.com/wooorm/mathml-tag-names/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
