@@ -20,7 +20,7 @@ npm install mathml-tag-names
 ```javascript
 var mathMLTagNames = require('mathml-tag-names')
 
-mathMLTagNames.length //=> 205
+console.log(mathMLTagNames.length) // => 202
 
 console.log(mathMLTagNames.slice(0, 20))
 ```

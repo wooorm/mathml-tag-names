@@ -24,7 +24,7 @@ https.get(
 https.get('https://www.w3.org/TR/MathML2/appendixl.html', onmathml2)
 
 /* Crawl MathMl 3.0. */
-https.get('https://www.w3.org/TR/MathML3/appendixi.html', onmathml3)
+https.get('https://w3c.github.io/mathml/appendixi.html', onmathml3)
 
 function onmathml1(res) {
   res.pipe(concat(onconcat)).on('error', bail)
@@ -62,7 +62,7 @@ function onmathml2(res) {
   function each(node) {
     var data = toString(node)
 
-    if (list.indexOf(data) === -1) {
+    if (list.indexOf(data) === -1 && data.slice(0, 2) !== 'm:' /* See GH-6 */) {
       list.push(data)
     }
   }
