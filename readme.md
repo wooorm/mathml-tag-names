@@ -1,4 +1,8 @@
-# mathml-tag-names [![Build Status][build-badge]][build-page]
+# mathml-tag-names
+
+[![Build][build-badge]][build]
+[![Downloads][downloads-badge]][downloads]
+[![Size][size-badge]][size]
 
 List of known MathML tag-names.  Includes the elements from
 [MathML 1][mathml1], [MathML 2][mathml2], and
@@ -77,7 +81,15 @@ Yields:
 
 [build-badge]: https://img.shields.io/travis/wooorm/mathml-tag-names.svg
 
-[build-page]: https://travis-ci.org/wooorm/mathml-tag-names
+[build]: https://travis-ci.org/wooorm/mathml-tag-names
+
+[downloads-badge]: https://img.shields.io/npm/dm/mathml-tag-names.svg
+
+[downloads]: https://www.npmjs.com/package/mathml-tag-names
+
+[size-badge]: https://img.shields.io/bundlephobia/minzip/mathml-tag-names.svg
+
+[size]: https://bundlephobia.com/result?p=mathml-tag-names
 
 [npm]: https://docs.npmjs.com/cli/install
 
