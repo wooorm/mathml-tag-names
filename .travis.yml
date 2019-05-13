@@ -1,14 +1,14 @@
 language: node_js
 node_js:
-- lts/boron
-- node
+  - lts/dubnium
+  - node
 deploy:
   provider: releases
   skip_cleanup: true
   api_key:
-    secure: g1q/C7L/3jfe73wf2OKDlk3vSDh+vXurwzjmBqvWKvP06TRpYzRr/Maw/7f//94qBePEfHtR1B0V4xbhm7ZfoaCKC7sXXoKYNZJucAApDObasjVfA05yrZ9UeLMtmBWMc55z/fmfoUBxfq4JlFEAFK1J0bZMvt1bwo6CezTQxsNzd4yq1FlnZ9yI3iWd0/KzxUUge94demvXOhHUFeUn3E8gjeBWVkiEuICe+4A/6rdS/T57b+zdUfrtbC1y9RwHZiF9eRasHl37EILNJOf48/FQOp8y3kzJNdq0CwsHBUHrtiP/v6yghhs5SB9awb8kRYCtfuCNqkFT8r0qzDNLo5EJmobC+FnFZSwwTxugtNGYrajQHeDZ2Y7L5tjDovacqTcA3x6vc37CJ5KQxc3zsme5/e907OM0ShNR3kGp6GOEQqzqSEB+qRYfaD6cjhAhIEDiFYHzB7gV7V5hpiCqXg/G1IXxDIqjHYtBfKRVmpl6OL2Y+6D8CylLxI17MJofXxPnUrjQ2roxDSTF/dETRMvHVY8r7JopsXD/LoAKjZ1E46ZQ9QFpHODW0R472AyothkyZ9ZAVTGqUtobQr/J3gB0NlJKyOQJvpkJNb9NNf/lJ+vrU1yUpzC8uMWOBkRWY403qTbatvckb869PJWdpAqWoWFp7oEeVod3zR5zmAs=
+    secure: M010Bqwf/yFK47AXo2enTSJwyJ9YmISV6y9p1N3OkyNQ1nHuMolbF0+p4kN3VG2QebRvALlY8DsbC1+Xtv9nnqqWgE4zUplGvwbaGvmL7eOTk0Wdtt18L+qqm3syrlcfzZLwISmGLEQ/oZArDcPQCUtZrAW4YY5q43Vqf6EDMYZDVkCF5ppr+q2Byciqlkwo8xg6njfKbhSVqLJI/zwGjHcaOGdBSyOzHr9oWT3hmjkGn/3Xz/kHQvCnrVN5wW9wDb++gSSiEyBA9s1EhFM0V1I1tzlHafekh39ppRq802HwnW9qQ46+AcJgEIodbo0SwfK7Qp54EBtBtPlsEVUXNTtDYMXDDXRreKjt39yK12cw5KLYLpYP3utxHPFHoc1F/JED1TEpyEEaV2N8HPgwaJ03ZjMcAT5EgL11J8AyeGVMAVJmNdaJgvedo8fzCOSIz83AgXcHw5I7/GVDU11okMCnZUt+mG0k1KcTcuneQU5Px0+0VEawAoj2xJ+FRxUhfCUNBCLZUsaCt7cLuI1U/o+KUGNFe1TNMkRmm/Mb2g6jCEZuWvWOIFm8yHMYHMRJ1wP/lPFyqrAyQLQjzLSHpAW7reqbWAbyc+gu2+voUEcRlTKmCdzZfDrKihQpfnyT99XXH+Pbq8PqAb1ifihPO7uaEIMDWkwTRM7bNF43F+4=
   file:
-    - "mathml-tag-names.js"
-    - "mathml-tag-names.min.js"
+    - 'mathml-tag-names.js'
+    - 'mathml-tag-names.min.js'
   on:
     tags: true
