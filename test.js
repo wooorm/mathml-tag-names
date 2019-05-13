@@ -9,7 +9,7 @@ test('mathMLTagNames', function(t) {
 
   t.doesNotThrow(function() {
     mathMLTagNames.forEach(function(tagName) {
-      assert.equal(typeof tagName, 'string', tagName)
+      assert.strictEqual(typeof tagName, 'string', tagName)
     })
   }, 'should be all strings')
 
