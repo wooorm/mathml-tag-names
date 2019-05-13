@@ -83,7 +83,7 @@ Yields:
 
 [license]: license
 
-[author]: http://wooorm.com
+[author]: https://wooorm.com
 
 [mathml1]: https://www.w3.org/TR/1998/REC-MathML-19980407/appendixF.html
 
