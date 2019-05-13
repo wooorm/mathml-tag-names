@@ -40,7 +40,7 @@
   },
   "scripts": {
     "generate": "node build",
-    "format": "remark . -qfo && prettier --write '**/*.js' && xo --fix",
+    "format": "remark . -qfo && prettier --write \"**/*.js\" && xo --fix",
     "build-bundle": "browserify index.json --bare -s mathML > mathml-tag-names.js",
     "build-mangle": "esmangle mathml-tag-names.js > mathml-tag-names.min.js",
     "build": "npm run build-bundle && npm run build-mangle",
