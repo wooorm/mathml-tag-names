@@ -4,7 +4,7 @@
 [![Downloads][downloads-badge]][downloads]
 [![Size][size-badge]][size]
 
-List of known MathML tag-names.
+List of known MathML tag names.
 Includes the elements from [MathML 1][mathml1], [MathML 2][mathml2], and
 [MathML 3][mathml3].
 
@@ -18,7 +18,7 @@ The repo contains a script to crawl specs to include newly introduced tag names.
 npm install mathml-tag-names
 ```
 
-## Usage
+## Use
 
 ```js
 var mathMLTagNames = require('mathml-tag-names')
@@ -55,7 +55,7 @@ Yields:
 
 ## API
 
-### `mathMLTagNames`
+### `mathMlTagNames`
 
 `Array.<string>` — List of lowercase tag names.
 
