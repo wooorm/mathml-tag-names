@@ -26,8 +26,8 @@ https.get('https://www.w3.org/TR/MathML2/appendixl.html', onmathml2)
 // Crawl MathMl 3.0.
 https.get('https://w3c.github.io/mathml/appendixi.html', onmathml3)
 
-function onmathml1(res) {
-  res.pipe(concat(onconcat)).on('error', bail)
+function onmathml1(response) {
+  response.pipe(concat(onconcat)).on('error', bail)
 
   function onconcat(buf) {
     selectAll('ul ul ul ul a', proc.parse(buf)).forEach(each)
@@ -50,8 +50,8 @@ function onmathml1(res) {
   }
 }
 
-function onmathml2(res) {
-  res.pipe(concat(onconcat)).on('error', bail)
+function onmathml2(response) {
+  response.pipe(concat(onconcat)).on('error', bail)
 
   function onconcat(buf) {
     selectAll('.div1 .div2:first-child dl dt', proc.parse(buf)).forEach(each)
@@ -71,8 +71,8 @@ function onmathml2(res) {
   }
 }
 
-function onmathml3(res) {
-  res.pipe(concat(onconcat)).on('error', bail)
+function onmathml3(response) {
+  response.pipe(concat(onconcat)).on('error', bail)
 
   function onconcat(buf) {
     selectAll('.div1 .div2:first-child dl dt', proc.parse(buf)).forEach(each)
