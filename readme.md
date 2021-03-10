@@ -1,6 +1,7 @@
 # mathml-tag-names
 
 [![Build][build-badge]][build]
+[![Coverage][coverage-badge]][coverage]
 [![Downloads][downloads-badge]][downloads]
 [![Size][size-badge]][size]
 
@@ -78,9 +79,13 @@ Yields:
 
 <!-- Definition -->
 
-[build-badge]: https://img.shields.io/travis/wooorm/mathml-tag-names.svg
+[build-badge]: https://github.com/wooorm/mathml-tag-names/workflows/main/badge.svg
 
-[build]: https://travis-ci.org/wooorm/mathml-tag-names
+[build]: https://github.com/wooorm/mathml-tag-names/actions
+
+[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/mathml-tag-names.svg
+
+[coverage]: https://codecov.io/github/wooorm/mathml-tag-names
 
 [downloads-badge]: https://img.shields.io/npm/dm/mathml-tag-names.svg
 
