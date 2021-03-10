@@ -2,15 +2,20 @@
 
 var assert = require('assert')
 var test = require('tape')
-var mathMLTagNames = require('.')
+var mathmlTagNames = require('.')
 
-test('mathMLTagNames', function (t) {
-  t.ok(Array.isArray(mathMLTagNames), 'should be an `array`')
+test('mathmlTagNames', function (t) {
+  t.ok(Array.isArray(mathmlTagNames), 'should be an `array`')
 
   t.doesNotThrow(function () {
-    mathMLTagNames.forEach(function (tagName) {
-      assert.strictEqual(typeof tagName, 'string', tagName)
-    })
+    var index = -1
+    while (++index < mathmlTagNames.length) {
+      assert.strictEqual(
+        typeof mathmlTagNames[index],
+        'string',
+        mathmlTagNames[index]
+      )
+    }
   }, 'should be all strings')
 
   t.end()
