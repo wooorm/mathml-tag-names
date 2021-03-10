@@ -25,17 +25,18 @@ npm install mathml-tag-names
 ## Use
 
 ```js
-var mathmlTagNames = require('mathml-tag-names')
+import {mathmlTagNames} from 'mathml-tag-names'
 
-console.log(mathmlTagNames.length) // => 202
+console.log(mathmlTagNames.length) // => 189
 
-console.log(mathmlTagNames.slice(0, 20))
+console.log(mathmlTagNames.slice(0, 10))
 ```
 
 Yields:
 
 ```js
-[ 'abs',
+[
+  'abs',
   'and',
   'annotation',
   'annotation-xml',
@@ -44,17 +45,8 @@ Yields:
   'arccos',
   'arccosh',
   'arccot',
-  'arccoth',
-  'arccsc',
-  'arccsch',
-  'arcsec',
-  'arcsech',
-  'arcsin',
-  'arcsinh',
-  'arctan',
-  'arctanh',
-  'arg',
-  'bind' ]
+  'arccoth'
+]
 ```
 
 ## API
@@ -64,7 +56,7 @@ There is no default export.
 
 ### `mathmlTagNames`
 
-`Array.<string>` — List of lowercase tag names.
+`string[]` — List of lowercase tag names.
 
 ## Related
 
