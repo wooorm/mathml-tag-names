@@ -1,6 +1,4 @@
 .DS_Store
-*.log
+coverage/
 node_modules/
-mathml-tag-names.js
-mathml-tag-names.min.js
 yarn.lock

@@ -1,14 +1,12 @@
-'use strict'
-
-var fs = require('fs')
-var https = require('https')
-var concat = require('concat-stream')
-var bail = require('bail')
-var unified = require('unified')
-var html = require('rehype-parse')
-var selectAll = require('hast-util-select').selectAll
-var toString = require('hast-util-to-string')
-var mathmlTagNames = require('.')
+import fs from 'fs'
+import https from 'https'
+import concat from 'concat-stream'
+import bail from 'bail'
+import unified from 'unified'
+import html from 'rehype-parse'
+import {selectAll} from 'hast-util-select'
+import toString from 'hast-util-to-string'
+import {mathmlTagNames} from './index.js'
 
 var proc = unified().use(html)
 
@@ -43,7 +41,7 @@ function onmathml1(response) {
         value = value.slice(0, -1)
       }
 
-      if (mathmlTagNames.indexOf(value) === -1) mathmlTagNames.push(value)
+      if (!mathmlTagNames.includes(value)) mathmlTagNames.push(value)
     }
 
     done()
@@ -62,7 +60,7 @@ function onmathml2(response) {
       value = toString(titles[index])
 
       if (
-        mathmlTagNames.indexOf(value) === -1 &&
+        !mathmlTagNames.includes(value) &&
         value.slice(0, 2) !== 'm:' // See GH-6
       ) {
         mathmlTagNames.push(value)
@@ -84,7 +82,7 @@ function onmathml3(response) {
     while (++index < titles.length) {
       value = toString(titles[index])
 
-      if (mathmlTagNames.indexOf(value) === -1) {
+      if (!mathmlTagNames.includes(value)) {
         mathmlTagNames.push(value)
       }
     }
@@ -96,8 +94,10 @@ function onmathml3(response) {
 function done() {
   if (++count === 3) {
     fs.writeFile(
-      'index.json',
-      JSON.stringify(mathmlTagNames.sort(), null, 2) + '\n',
+      'index.js',
+      'export var mathmlTagNames = ' +
+        JSON.stringify(mathmlTagNames.sort(), null, 2) +
+        '\n',
       bail
     )
   }

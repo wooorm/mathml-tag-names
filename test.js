@@ -1,8 +1,6 @@
-'use strict'
-
-var assert = require('assert')
-var test = require('tape')
-var mathmlTagNames = require('.')
+import assert from 'assert'
+import test from 'tape'
+import {mathmlTagNames} from './index.js'
 
 test('mathmlTagNames', function (t) {
   t.ok(Array.isArray(mathmlTagNames), 'should be an `array`')

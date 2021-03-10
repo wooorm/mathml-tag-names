@@ -13,6 +13,9 @@ The repo contains a script to crawl specs to include newly introduced tag names.
 
 ## Install
 
+This package is ESM only: Node 12+ is needed to use it and it must be `import`ed
+instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -22,11 +25,11 @@ npm install mathml-tag-names
 ## Use
 
 ```js
-var mathMLTagNames = require('mathml-tag-names')
+var mathmlTagNames = require('mathml-tag-names')
 
-console.log(mathMLTagNames.length) // => 202
+console.log(mathmlTagNames.length) // => 202
 
-console.log(mathMLTagNames.slice(0, 20))
+console.log(mathmlTagNames.slice(0, 20))
 ```
 
 Yields:
@@ -56,7 +59,10 @@ Yields:
 
 ## API
 
-### `mathMlTagNames`
+This package exports the following identifiers: `mathmlTagNames`.
+There is no default export.
+
+### `mathmlTagNames`
 
 `Array.<string>` — List of lowercase tag names.
 
