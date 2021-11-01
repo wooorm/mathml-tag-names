@@ -1,4 +1,4 @@
-export var mathmlTagNames = [
+export const mathmlTagNames = [
   'abs',
   'and',
   'annotation',

@@ -1,16 +1,16 @@
-import fs from 'fs'
-import https from 'https'
-import concat from 'concat-stream'
-import bail from 'bail'
-import unified from 'unified'
-import html from 'rehype-parse'
+import fs from 'node:fs'
+import https from 'node:https'
+import concatStream from 'concat-stream'
+import {bail} from 'bail'
+import {unified} from 'unified'
+import rehypeParse from 'rehype-parse'
 import {selectAll} from 'hast-util-select'
-import toString from 'hast-util-to-string'
+import {toString} from 'hast-util-to-string'
 import {mathmlTagNames} from './index.js'
 
-var proc = unified().use(html)
+const proc = unified().use(rehypeParse)
 
-var count = 0
+let count = 0
 
 // Crawl MathMl 1.0.
 https.get(
@@ -25,12 +25,12 @@ https.get('https://www.w3.org/TR/MathML2/appendixl.html', onmathml2)
 https.get('https://w3c.github.io/mathml/appendixi.html', onmathml3)
 
 function onmathml1(response) {
-  response.pipe(concat(onconcat)).on('error', bail)
+  response.pipe(concatStream(onconcat)).on('error', bail)
 
   function onconcat(buf) {
-    var links = selectAll('ul ul ul ul a', proc.parse(buf))
-    var index = -1
-    var value
+    const links = selectAll('ul ul ul ul a', proc.parse(buf))
+    let index = -1
+    let value
 
     while (++index < links.length) {
       value = toString(links[index].children[0])
@@ -49,12 +49,12 @@ function onmathml1(response) {
 }
 
 function onmathml2(response) {
-  response.pipe(concat(onconcat)).on('error', bail)
+  response.pipe(concatStream(onconcat)).on('error', bail)
 
   function onconcat(buf) {
-    var titles = selectAll('.div1 .div2:first-child dl dt', proc.parse(buf))
-    var index = -1
-    var value
+    const titles = selectAll('.div1 .div2:first-child dl dt', proc.parse(buf))
+    let index = -1
+    let value
 
     while (++index < titles.length) {
       value = toString(titles[index])
@@ -72,12 +72,12 @@ function onmathml2(response) {
 }
 
 function onmathml3(response) {
-  response.pipe(concat(onconcat)).on('error', bail)
+  response.pipe(concatStream(onconcat)).on('error', bail)
 
   function onconcat(buf) {
-    var titles = selectAll('.div1 .div2:first-child dl dt', proc.parse(buf))
-    var index = -1
-    var value
+    const titles = selectAll('.div1 .div2:first-child dl dt', proc.parse(buf))
+    let index = -1
+    let value
 
     while (++index < titles.length) {
       value = toString(titles[index])
@@ -95,7 +95,7 @@ function done() {
   if (++count === 3) {
     fs.writeFile(
       'index.js',
-      'export var mathmlTagNames = ' +
+      'export const mathmlTagNames = ' +
         JSON.stringify(mathmlTagNames.sort(), null, 2) +
         '\n',
       bail
