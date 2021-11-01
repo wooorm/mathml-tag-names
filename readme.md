@@ -6,20 +6,55 @@
 [![Size][size-badge]][size]
 
 List of known MathML tag names.
-Includes the elements from [MathML 1][mathml1], [MathML 2][mathml2], and
-[MathML 3][mathml3].
 
-The repo contains a script to crawl specs to include newly introduced tag names.
+## Contents
+
+*   [What is this?](#what-is-this)
+*   [When should I use this?](#when-should-i-use-this)
+*   [Install](#install)
+*   [Use](#use)
+*   [API](#api)
+    *   [`mathmlTagNames`](#mathmltagnames)
+*   [Types](#types)
+*   [Compatibility](#compatibility)
+*   [Security](#security)
+*   [Related](#related)
+*   [Contribute](#contribute)
+*   [License](#license)
+
+## What is this?
+
+This is a list of MathML tag names.
+It includes all tag names from [MathML 1][mathml1], [MathML 2][mathml2], and
+[MathML 3][mathml3].
+The repo is includes scripts to regenerate the data from the specs.
+
+## When should I use this?
+
+You can use this package when you need to know what tag names are allowed in
+any version of MathML.
 
 ## Install
 
-This package is ESM only: Node 12+ is needed to use it and it must be `import`ed
-instead of `require`d.
-
-[npm][]:
+This package is [ESM only][esm].
+In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm][]:
 
 ```sh
 npm install mathml-tag-names
+```
+
+In Deno with [Skypack][]:
+
+```js
+import {mathmlTagNames} from 'https://cdn.skypack.dev/mathml-tag-names@3?dts'
+```
+
+In browsers with [Skypack][]:
+
+```html
+<script type="module">
+  import {mathmlTagNames} from 'https://cdn.skypack.dev/mathml-tag-names@3?min'
+</script>
 ```
 
 ## Use
@@ -56,20 +91,39 @@ There is no default export.
 
 ### `mathmlTagNames`
 
-`string[]` — List of lowercase tag names.
+List of known (lowercase) MathML tag names (`Array<string>`).
+
+## Types
+
+This package is fully typed with [TypeScript][].
+
+## Compatibility
+
+This package is at least compatible with all maintained versions of Node.js.
+As of now, that is Node.js 12.20+, 14.14+, and 16.0+.
+It also works in Deno and modern browsers.
+
+## Security
+
+This package is safe.
 
 ## Related
 
-*   [`html-tag-names`](https://github.com/wooorm/html-tag-names)
-    — List of HTML tags
-*   [`svg-tag-names`](https://github.com/wooorm/svg-tag-names)
-    — List of SVG tags
-*   [`svg-element-attributes`](https://github.com/wooorm/svg-element-attributes)
-    — Map of SVG elements to allowed attributes
-*   [`html-element-attributes`](https://github.com/wooorm/html-element-attributes)
-    — Map of HTML elements to allowed attributes
-*   [`aria-attributes`](https://github.com/wooorm/aria-attributes)
-    — List of ARIA attributes
+*   [`wooorm/html-tag-names`](https://github.com/wooorm/html-tag-names)
+    — list of HTML tag names
+*   [`wooorm/svg-tag-names`](https://github.com/wooorm/svg-tag-names)
+    — list of SVG tag names
+*   [`wooorm/svg-element-attributes`](https://github.com/wooorm/svg-element-attributes)
+    — map of SVG elements to attributes
+*   [`wooorm/html-element-attributes`](https://github.com/wooorm/html-element-attributes)
+    — map of HTML elements to attributes
+*   [`wooorm/aria-attributes`](https://github.com/wooorm/aria-attributes)
+    — list of ARIA attributes
+
+## Contribute
+
+Yes please!
+See [How to Contribute to Open Source][contribute].
 
 ## License
 
@@ -95,9 +149,17 @@ There is no default export.
 
 [npm]: https://docs.npmjs.com/cli/install
 
+[skypack]: https://www.skypack.dev
+
 [license]: license
 
 [author]: https://wooorm.com
+
+[esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
+
+[typescript]: https://www.typescriptlang.org
+
+[contribute]: https://opensource.guide/how-to-contribute/
 
 [mathml1]: https://www.w3.org/TR/1998/REC-MathML-19980407/appendixF.html
 
