@@ -1,3 +1,8 @@
+/**
+ * List of known MathML tag names.
+ *
+ * @type {Array<string>}
+ */
 export const mathmlTagNames = [
   'abs',
   'and',
