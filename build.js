@@ -30,10 +30,9 @@ function onmathml1(response) {
   function onconcat(buf) {
     const links = selectAll('ul ul ul ul a', proc.parse(buf))
     let index = -1
-    let value
 
     while (++index < links.length) {
-      value = toString(links[index].children[0])
+      let value = toString(links[index].children[0])
 
       value = value.slice(value.indexOf('<') + 1, value.indexOf('>'))
 
@@ -54,10 +53,9 @@ function onmathml2(response) {
   function onconcat(buf) {
     const titles = selectAll('.div1 .div2:first-child dl dt', proc.parse(buf))
     let index = -1
-    let value
 
     while (++index < titles.length) {
-      value = toString(titles[index])
+      const value = toString(titles[index])
 
       if (
         !mathmlTagNames.includes(value) &&
@@ -77,10 +75,9 @@ function onmathml3(response) {
   function onconcat(buf) {
     const titles = selectAll('.div1 .div2:first-child dl dt', proc.parse(buf))
     let index = -1
-    let value
 
     while (++index < titles.length) {
-      value = toString(titles[index])
+      const value = toString(titles[index])
 
       if (!mathmlTagNames.includes(value)) {
         mathmlTagNames.push(value)
