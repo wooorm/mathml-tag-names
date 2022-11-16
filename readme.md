@@ -27,7 +27,7 @@ List of known MathML tag names.
 This is a list of MathML tag names.
 It includes all tag names from [MathML 1][mathml1], [MathML 2][mathml2], and
 [MathML 3][mathml3].
-The repo is includes scripts to regenerate the data from the specs.
+The repo includes scripts to regenerate the data from the specs.
 
 ## When should I use this?
 
@@ -37,7 +37,7 @@ any version of MathML.
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm][]:
+In Node.js (version 14.14+, 16.0+), install with [npm][]:
 
 ```sh
 npm install mathml-tag-names
@@ -86,7 +86,7 @@ Yields:
 
 ## API
 
-This package exports the following identifiers: `mathmlTagNames`.
+This package exports the identifier `mathmlTagNames`.
 There is no default export.
 
 ### `mathmlTagNames`
@@ -96,11 +96,12 @@ List of known (lowercase) MathML tag names (`Array<string>`).
 ## Types
 
 This package is fully typed with [TypeScript][].
+It exports no additional types.
 
 ## Compatibility
 
 This package is at least compatible with all maintained versions of Node.js.
-As of now, that is Node.js 12.20+, 14.14+, and 16.0+.
+As of now, that is Node.js 14.14+ and 16.0+.
 It also works in Deno and modern browsers.
 
 ## Security
