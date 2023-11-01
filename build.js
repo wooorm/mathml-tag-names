@@ -25,7 +25,7 @@ while (++index < links.length) {
 
   value = value.slice(start + 1, end)
 
-  if (value.charAt(value.length - 1) === '/') {
+  if (value.at(-1) === '/') {
     value = value.slice(0, -1)
   }
 
