@@ -50,14 +50,14 @@ npm install mathml-tag-names
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import {mathmlTagNames} from 'https://esm.sh/mathml-tag-names@3'
+import {mathmlTagNames} from 'https://esm.sh/mathml-tag-names@4'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import {mathmlTagNames} from 'https://esm.sh/mathml-tag-names@3?bundle'
+  import {mathmlTagNames} from 'https://esm.sh/mathml-tag-names@4?bundle'
 </script>
 ```
 
