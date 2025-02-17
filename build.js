@@ -3,20 +3,22 @@ import fs from 'node:fs/promises'
 import {fromHtml} from 'hast-util-from-html'
 import {selectAll} from 'hast-util-select'
 import {toString} from 'hast-util-to-string'
-import {mathmlTagNames} from './index.js'
+import {mathmlTagNames as before} from './index.js'
+
+const mathmlTagNames = new Set(before)
 
 // Crawl MathMl 1.0.
 const response1 = await fetch(
   'https://www.w3.org/TR/1998/REC-MathML-19980407/appendixF.html'
 )
-const text1 = await response1.text()
-const tree1 = fromHtml(text1)
+const tree1 = fromHtml(await response1.text())
 
 const links = selectAll('ul ul ul ul a', tree1)
-let index = -1
 
-while (++index < links.length) {
-  let value = toString(links[index].children[0])
+for (const link of links) {
+  const head = link.children[0]
+  assert(head)
+  let value = toString(head)
   const start = value.indexOf('<')
   const end = value.indexOf('>')
   assert(start !== -1, 'non-negative start')
@@ -28,40 +30,33 @@ while (++index < links.length) {
     value = value.slice(0, -1)
   }
 
-  mathmlTagNames.push(value)
+  mathmlTagNames.add(value)
 }
 
 // Crawl MathMl 2.0.
 const response2 = await fetch('https://www.w3.org/TR/MathML2/appendixl.html')
-const text2 = await response2.text()
-const tree2 = fromHtml(text2)
+const tree2 = fromHtml(await response2.text())
 const titles2 = selectAll('.div1 .div2:first-child dl dt', tree2)
-index = -1
 
-while (++index < titles2.length) {
-  const value = toString(titles2[index])
+for (const title of titles2) {
+  const value = toString(title)
 
-  if (
-    value.slice(0, 2) !== 'm:' // See GH-6
-  ) {
-    mathmlTagNames.push(value)
+  // See GH-6
+  if (value.slice(0, 2) !== 'm:') {
+    mathmlTagNames.add(value)
   }
 }
 
 // Crawl MathMl 3.0.
 const response3 = await fetch('https://w3c.github.io/mathml/appendixi.html')
-const text3 = await response3.text()
-const tree3 = fromHtml(text3)
+const tree3 = fromHtml(await response3.text())
 
 const titles3 = selectAll('.div1 .div2:first-child dl dt', tree3)
-index = -1
 
-while (++index < titles3.length) {
-  const value = toString(titles3[index])
-  mathmlTagNames.push(value)
+for (const title of titles3) {
+  const value = toString(title)
+  mathmlTagNames.add(value)
 }
-
-const list = [...new Set(mathmlTagNames)].sort()
 
 await fs.writeFile(
   'index.js',
@@ -69,9 +64,10 @@ await fs.writeFile(
     '/**',
     ' * List of known MathML tag names.',
     ' *',
-    ' * @type {Array<string>}',
+    ' * @type {ReadonlyArray<string>}',
     ' */',
-    'export const mathmlTagNames = ' + JSON.stringify(list, null, 2),
+    'export const mathmlTagNames = ' +
+      JSON.stringify([...mathmlTagNames].sort(), undefined, 2),
     ''
   ].join('\n')
 )

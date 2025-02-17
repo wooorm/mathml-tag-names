@@ -93,7 +93,7 @@ There is no default export.
 
 ### `mathmlTagNames`
 
-List of known (lowercase) MathML tag names (`Array<string>`).
+List of known (lowercase) MathML tag names (`ReadonlyArray<string>`).
 
 ## Types
 

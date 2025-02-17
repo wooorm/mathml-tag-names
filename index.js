@@ -1,7 +1,7 @@
 /**
  * List of known MathML tag names.
  *
- * @type {Array<string>}
+ * @type {ReadonlyArray<string>}
  */
 export const mathmlTagNames = [
   'abs',
