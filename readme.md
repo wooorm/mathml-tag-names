@@ -39,7 +39,7 @@ any version of MathML.
 ## Install
 
 This package is [ESM only][github-gist-esm].
-In Node.js (version 14+),
+In Node.js (version 16+),
 install with [npm][npmjs-install]:
 
 ```sh
@@ -105,7 +105,7 @@ It exports no additional types.
 
 This package is at least compatible with all maintained versions of Node.js.
 As of now,
-that is Node.js 14.14+.
+that is Node.js 16+.
 It also works in Deno and modern browsers.
 
 ## Security
