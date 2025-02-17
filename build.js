@@ -3,7 +3,7 @@ import fs from 'node:fs/promises'
 import {fromHtml} from 'hast-util-from-html'
 import {selectAll} from 'hast-util-select'
 import {toString} from 'hast-util-to-string'
-import {mathmlTagNames as before} from './index.js'
+import {mathmlTagNames as before} from 'mathml-tag-names'
 
 const mathmlTagNames = new Set(before)
 

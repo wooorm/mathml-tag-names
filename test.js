@@ -1,10 +1,10 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import {mathmlTagNames} from './index.js'
+import {mathmlTagNames} from 'mathml-tag-names'
 
 test('mathmlTagNames', async function (t) {
   await t.test('should expose the public api', async function () {
-    assert.deepEqual(Object.keys(await import('./index.js')).sort(), [
+    assert.deepEqual(Object.keys(await import('mathml-tag-names')).sort(), [
       'mathmlTagNames'
     ])
   })

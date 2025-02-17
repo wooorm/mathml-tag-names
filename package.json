@@ -18,6 +18,7 @@
     "typescript": "^5.0.0",
     "xo": "^0.60.0"
   },
+  "exports": "./index.js",
   "files": [
     "index.d.ts.map",
     "index.d.ts",
@@ -37,7 +38,6 @@
     "w3c"
   ],
   "license": "MIT",
-  "main": "index.js",
   "name": "mathml-tag-names",
   "prettier": {
     "bracketSpacing": false,
@@ -66,7 +66,6 @@
     "atLeast": 100,
     "ignoreCatch": true
   },
-  "types": "index.d.ts",
   "type": "module",
   "version": "3.0.2",
   "xo": {
