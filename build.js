@@ -58,6 +58,25 @@ for (const title of titles3) {
   mathmlTagNames.add(value)
 }
 
+// Crawl MathMl 4.
+const response4 = await fetch('https://www.w3.org/TR/mathml4/')
+const tree4 = fromHtml(await response4.text())
+
+const titles4 = selectAll('dl#mml_elements dt', tree4)
+assert(titles4.length > 179)
+
+for (const title of titles4) {
+  const value = toString(title)
+  // From another spec.
+  if (value.includes('(')) continue
+  // Looks like a `none/>` and `ol>` are accidental.
+  if (value.includes('>')) continue
+  // This seems to be a mistake:
+  // the only example in the text is in an `annotation-xml`.
+  if (value === 'img') continue
+  mathmlTagNames.add(value)
+}
+
 await fs.writeFile(
   'index.js',
   [

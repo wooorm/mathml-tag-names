@@ -27,8 +27,9 @@ List of known MathML tag names.
 This is a list of MathML tag names.
 It includes all tag names from [MathML 1][w3-mathml1],
 [MathML 2][w3-mathml2],
+[MathML 3][w3-mathml3],
 and
-[MathML 3][w3-mathml3].
+[MathML 4][w3-mathml4].
 The repo includes scripts to regenerate the data from the specs.
 
 ## When should I use this?
@@ -169,5 +170,7 @@ See [*How to Contribute to Open Source*][opensource-guide].
 [w3-mathml2]: https://www.w3.org/TR/MathML2/appendixl.html
 
 [w3-mathml3]: https://www.w3.org/TR/MathML3/appendixi.html
+
+[w3-mathml4]: https://www.w3.org/TR/mathml4/#mmlindex_elements
 
 [wooorm]: https://wooorm.com
