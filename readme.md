@@ -66,7 +66,7 @@ In browsers with [`esm.sh`][esmsh]:
 ```js
 import {mathmlTagNames} from 'mathml-tag-names'
 
-console.log(mathmlTagNames.length) // => 189
+console.log(mathmlTagNames.length) // => 201
 
 console.log(mathmlTagNames.slice(0, 10))
 ```
