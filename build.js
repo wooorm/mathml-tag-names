@@ -12,8 +12,8 @@ const response1 = await fetch(
   'https://www.w3.org/TR/1998/REC-MathML-19980407/appendixF.html'
 )
 const tree1 = fromHtml(await response1.text())
-
 const links = selectAll('ul ul ul ul a', tree1)
+assert(links.length > 91, String(links.length))
 
 for (const link of links) {
   const head = link.children[0]
@@ -37,6 +37,7 @@ for (const link of links) {
 const response2 = await fetch('https://www.w3.org/TR/MathML2/appendixl.html')
 const tree2 = fromHtml(await response2.text())
 const titles2 = selectAll('.div1 .div2:first-child dl dt', tree2)
+assert(titles2.length > 188, String(titles2.length))
 
 for (const title of titles2) {
   const value = toString(title)
@@ -48,13 +49,17 @@ for (const title of titles2) {
 }
 
 // Crawl MathMl 3.0.
-const response3 = await fetch('https://w3c.github.io/mathml/appendixi.html')
+const response3 = await fetch('https://www.w3.org/TR/MathML3/appendixi.html')
 const tree3 = fromHtml(await response3.text())
-
 const titles3 = selectAll('.div1 .div2:first-child dl dt', tree3)
+assert(titles3.length > 194, String(titles3.length))
 
 for (const title of titles3) {
   const value = toString(title)
+  // Probably a bug.
+  if (value === 'mi"') continue
+  // This seems to be a mistake: the only example in the text is in an `annotation-xml`.
+  if (value === 'span') continue
   mathmlTagNames.add(value)
 }
 
@@ -63,7 +68,7 @@ const response4 = await fetch('https://www.w3.org/TR/mathml4/')
 const tree4 = fromHtml(await response4.text())
 
 const titles4 = selectAll('dl#mml_elements dt', tree4)
-assert(titles4.length > 179)
+assert(titles4.length > 179, String(titles4.length))
 
 for (const title of titles4) {
   const value = toString(title)
@@ -71,8 +76,7 @@ for (const title of titles4) {
   if (value.includes('(')) continue
   // Looks like a `none/>` and `ol>` are accidental.
   if (value.includes('>')) continue
-  // This seems to be a mistake:
-  // the only example in the text is in an `annotation-xml`.
+  // This seems to be a mistake: the only example in the text is in an `annotation-xml`.
   if (value === 'img') continue
   mathmlTagNames.add(value)
 }
